@@ -103,7 +103,7 @@ class _PinteresGridState extends State<PinteresGrid> {
       itemCount: item.length,
       itemBuilder: (BuildContext context, int index) => _PinteresItem(index),
       staggeredTileBuilder: (int index) =>
-          new StaggeredTile.count(2, index.isEven ? 2 : 3),
+          new StaggeredTile.count(2, index.isEven ? 2 : 1),
       mainAxisSpacing: 2.0,
       crossAxisSpacing: 1.0,
     );
