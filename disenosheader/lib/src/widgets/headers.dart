@@ -178,24 +178,29 @@ class _HeaderCurvoPainter extends CustomPainter {
 }
 
 class HeaderWave extends StatelessWidget {
+  final Color color;
+
+  const HeaderWave({@required this.color});
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: double.infinity,
       child: CustomPaint(
-        painter: _HeaderWavePainter(),
+        painter: _HeaderWavePainter(this.color),
       ),
     );
   }
 }
 
 class _HeaderWavePainter extends CustomPainter {
+  var color;
+  _HeaderWavePainter(this.color);
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
     // Propiedades
-    paint.color = Color(0xff615AAB);
+    paint.color = color;//Color(0xff615AAB);
 //    paint.style = PaintingStyle.stroke;
     paint.style = PaintingStyle.fill;
     paint.strokeWidth = 20.0;

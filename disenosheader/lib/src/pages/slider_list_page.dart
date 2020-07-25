@@ -1,4 +1,6 @@
+import 'package:disenosheader/src/theme/themechanger.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SliderListPage extends StatelessWidget {
   @override
@@ -20,18 +22,19 @@ class _ButtonNewList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final appTheme = Provider.of<ThemeChanger>(context);
     return ButtonTheme(
       minWidth: size.width * 0.9,
       height: 100,
       child: RaisedButton(
-        color: Color(0xffED6762),
+        color: (appTheme.darkTheme) ? appTheme.currentTheme.accentColor : Color(0xffED6762),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(topLeft: Radius.circular(50))
           ),
           child: Text(
             'Create New List',
             style: TextStyle(
-              color: Colors.white,
+              color: appTheme.currentTheme.scaffoldBackgroundColor,
               fontSize: 18,
               fontWeight: FontWeight.bold,
               letterSpacing: 3,
@@ -108,6 +111,7 @@ class _SliverCustomDelegate extends SliverPersistentHeaderDelegate {
 class _Titulo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeChanger>(context);
     return Column(
       children: <Widget>[
         SizedBox(height: 30),
@@ -116,7 +120,7 @@ class _Titulo extends StatelessWidget {
           child: Text(
             'New',
             style: TextStyle(
-              color: Color(0xff532128),
+              color: (appTheme.darkTheme) ? Colors.grey : Color(0xff532128),
               fontSize: 50,
             ),
           ),
@@ -129,7 +133,7 @@ class _Titulo extends StatelessWidget {
               child: Container(
                 width: 120,
                 height: 8,
-                color: Color(0xffF7CDD5),
+                color: (appTheme.darkTheme) ? Colors.grey : Color(0xffF7CDD5),
               ),
             ),
             Container(

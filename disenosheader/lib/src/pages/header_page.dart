@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-//import 'package:disenosheader/src/retos/cuadrado_animado_page.dart';
+import 'package:provider/provider.dart';
 
-import '../labs/circular_progress_page.dart';
-//import 'package:disenosheader/src/widgets/headers.dart';
-
-//import 'Animaciones_page.dart';
+import 'package:disenosheader/src/theme/themechanger.dart';
+import 'package:disenosheader/src/widgets/headers.dart';
 
 class HeaderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<ThemeChanger>(context).currentTheme;
     return Scaffold(
-      body: CircularProgressPage(),
+      body: HeaderWave(color: appTheme.accentColor,),
     );
   }
 }
